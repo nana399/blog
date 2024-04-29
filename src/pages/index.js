@@ -1,14 +1,14 @@
 import { Inter } from "next/font/google";
-import Layout from "../../components/Layout";
+import Layout, { siteTitle } from "../../components/Layout";
 import utilStyle from "../styles/utils.module.css";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { getPostsData } from "@/lib/post";
+import Head from "next/head";
 
 // SSGの場合
 export async function getStaticProps() {
   const allPostsData = getPostsData();
-  console.log(allPostsData);
 
   return {
     props: {
@@ -19,10 +19,14 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={utilStyle.headingMd}>
         <p>
-          求人広告業界で転職エージェントサービスの開発をしています/好きな言語はTypeScript・Next.jsです
+          求人広告業界で転職エージェントサービスの開発をしています/
+          好きな言語はTypeScript・Next.jsです
         </p>
       </section>
 

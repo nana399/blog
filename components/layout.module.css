@@ -20,6 +20,11 @@
   height: 8rem;
 }
 
+.headerDefaultImage {
+  height: 100px;
+  width: 100px;
+}
+
 .backToHome {
   margin: 3rem 0 0;
 }
