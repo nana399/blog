@@ -1,14 +1,24 @@
 import Head from "next/head";
+import styles from "./layout.module.css";
+import utilsStyles from "../src/styles/utils.module.css";
 
-function Layout() {
+const name = 'Banana';
+export const siteTitle = 'Net.js blog'
+
+function Layout({children}) {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
-        <link rel= 'icon' href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <img src= '/images/profile.png'></img>
+      <header className={styles.header}>
+        <img
+          src="/images/profile.png"
+          className={utilsStyles.borderCircle}
+        ></img>
+        <h1 className={utilsStyles.heading2Xl}>{name}</h1>
       </header>
+      <main>{children}</main>
     </div>
   );
 }
